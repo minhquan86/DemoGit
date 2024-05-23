@@ -1,0 +1,105 @@
+.tong{
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.oto1 img{
+    width: 80%;
+}
+
+.banner-menu{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: gray;
+}
+
+.btnbanner{
+    margin-right: 10px;
+}
+
+.menu{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: grey;
+    height: 40px;
+    width: 100%;
+}
+
+.nutmenu{
+    margin: 0px 90px;
+    font-size: 20px;
+}
+
+.nutmenu a{
+    text-decoration: none;
+    color: black;
+}
+
+.nutmenu a:hover{
+    text-decoration: underline;
+    color: antiquewhite;
+}
+
+.noidung{
+    width: 100%;
+    display: grid;
+    grid-gap:90px;
+    justify-content: center;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto auto;
+    padding-top: 50px;
+}
+
+@media only screen and (max-width:1000px) {
+    .noidung{
+        flex-direction: column;
+        display: flex;
+    }
+
+    .footer{
+        height: 240px;
+        display: flex;
+        justify-content: space-between;
+        background-color: grey;
+        align-items: center;
+    }
+
+    .footer img{
+        width: 200px;
+        height: 160px;
+    }
+}
+
+
+.oto1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.footer{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: grey;
+    align-items: center;
+}
+
+.footer img{
+    width: 50%;
+}
+
+.noidung a{
+    text-decoration: none;
+}
+
+.noidung a:hover{
+    text-decoration: underline;
+    color: red;
+}

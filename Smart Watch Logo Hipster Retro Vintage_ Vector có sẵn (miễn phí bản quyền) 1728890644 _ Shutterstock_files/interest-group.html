@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!-- saved from url=(0345)https://fledge.us.criteo.com/interest-group?data=bAKToXxrQUVqdEhIclBIUzNDcU1xN3A1WXVGWUhJMVlLT2VuZmM4cVdEQ29ydHJUYVdqV1RZcG9FZGYyTkVqMXBPMGJSQktxM0w3M0VBSSs2a1ZhdHhTcnFLUTh2a08vRjNxMnhJZ2c0NytqS20zQjNFbiszR0ZRcE9qZk5TaFRFQmhGNFk0NkNHcitsUi9GYUdzMi9QM3NXUm1KUUo1VGpiNi8weVQwc0ZTZ0trWWtGOGE4RExZTk9nNnlBT05pdzRpYzZOajVqRXB6WkFFSFBEU3dLanoyVnRRPT18 -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <!-- Chrome origin trial token -->
+    <meta http-equiv="origin-trial" content="AnolOEEMEnMaCvmUcw/eijaA/Ntx4pke43TW8O1+XFxTL7yMSzmBnkPrjQ33sKmqvREEpLQOE72gUMzHLu9KiAoAAABseyJvcmlnaW4iOiJodHRwczovL2NyaXRlby5jb206NDQzIiwiZmVhdHVyZSI6IlByaXZhY3lTYW5kYm94QWRzQVBJcyIsImV4cGlyeSI6MTY5NTE2Nzk5OSwiaXNTdWJkb21haW4iOnRydWV9">
+</head>
+<body>
+
+<script>
+    function getBswIg(src) {
+        const elt = document.createElement("iframe");
+        elt.allow = "join-ad-interest-group";
+        elt.width = "0";
+        elt.height = "0";
+        elt.style.display = "none";
+        elt.title = "BSW IG";
+        elt.src = src;
+
+        document.body.appendChild(elt);
+    }
+
+    if (!navigator.joinAdInterestGroup) {
+        console.log("No fledge for you!");
+    } else {
+        var igs = [{"owner":"https://fledge.us.criteo.com","name":"W16Pcnw2MFJRaUFaZDNwVC84SUR5dElxaitnPT18","lifetimeMs":2592000000,"priorityVector":{"browserSignals.ageInMinutes":-1,"browserSignals.one":-86400},"biddingLogicURL":"https://fledge.us.criteo.com/simplebid?platform=us","biddingWasmHelperURL":"https://fledge.us.criteo.com/criteo.wasm","trustedBiddingSignalsURL":"https://fledge.us.criteo.com/getvalues","trustedBiddingSignalsKeys":["uza93HxrQUVqdEhIclBIUzNDcU1xN3A1WXVOQTJpbjhQZ0ZKdWZwY202S0RFYUJBZFQ0U2RmSEJvZmdXbVJBcFlTNUhkMTNWaWlmSU0zVEYza1kxZmdVb2lZMEZucWhRQ3VFZjJSREpQRFkyUUwyTC9nclBTaXVaRS9aL1pDTVNGWDZHVGVWQ1NINW9nRVlBL1RTRnFoa3FIc0VkaWJrMWwvM0lEN1NlaE5mL3UvL3hSOUhycDlEbGkwWEZxbUNpK1JDWDJ8"],"maxTrustedBiddingSignalsURLLength":32768,"userBiddingSignals":{},"updateURL":"https://fledge.us.criteo.com/interest-group/update?key=ZIB45HxrQUVqdEhIclBIUzNDcU1xN3A1WXVJZ254cGlMMEcybTFJRVhpemZJdG93SkR1UTc0V0pwVlBZYW1KdFU4Mjl3K1N6ckZEWjFXNXpERG82RFdWMllHd3l4b2xDTHpmaElwSDNGcU83VFQzRVU0VklaZHZ1U2lFZjdXTGs2ekx5eWhHYnhwMWtYMTdhbGFBNHRwcjZGYU5FdjVjdWZrYVZUM1dDWHpxSjhlVnZjRFplZ01kaUhUa3hvb0Q5SndhL2h8","ads":[],"adComponents":[],"trustedBiddingSignalsSlotSizeMode":"slot-size","executionMode":"group-by-origin"}];
+        var expiration = 2592000;
+        var errorEndpoint = "https://fledge.us.criteo.com/interest-group/error?pid=36026";
+        if (navigator.joinAdInterestGroup.length == 1) {
+            for (const ig of igs) {
+                navigator.joinAdInterestGroup(ig).catch((e) => fetch(`${errorEndpoint}&message=${encodeError(e)}`));
+            }
+        } else {
+            // This is for backwards-compatibility
+            // The 1 - arg implementation is future - proof
+            for (const ig of igs) {
+                navigator.joinAdInterestGroup(ig, expiration).catch((e) => fetch(`${errorEndpoint}&message=${encodeError(e)}`));
+            }
+        }
+        if (false) {
+            getBswIg("https://dsp-paapi-sandbox.bsw-ig.criteo.com/paapi/dsp/html/index");
+            getBswIg("https://paa-proxy-dsp.bsw-sb.criteo.com/paapi/paa-proxy/dsp/html/index/bsw-sb-ig-paa-proxy");
+        }
+    }
+
+    function encodeError(error) {
+        return encodeURIComponent(error.name + ':' + error.message);
+    }
+
+    async function measureAudienceSize() {
+        // Measuring audience size
+        // Register worklet
+        if((!window?.sharedStorage?.worklet?.addModule) || (!window?.sharedStorage?.run)){
+            return;
+        }
+        await window.sharedStorage.worklet.addModule('');
+
+        // Run audience size measurement operation
+        await window.sharedStorage.run('audience-size-measurement', {
+            data: { bucketKey: BigInt('1152836'), contributionValue: 8192}
+        });
+    }
+
+    //TODO reactivate audience-size-measurement
+    //measureAudienceSize();
+
+</script>
+
+
+</body></html>
